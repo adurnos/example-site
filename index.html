@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Business Name] | ProfessionalPlumbing in [City Name]</title>
+<meta name="description" content="[Business Name] provides trusted, licensed plumbing services in [City Name]. Call now for fast, reliable service.">
+
+<!-- Google Fonts: Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Font Awesome v6 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#top" class="logo">[Business Name]</a>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+
+    <a href="tel:[Phone Number]" class="btn-call">
+      <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      <span>Call Now</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg" role="img" aria-label="Plumbing wrenches, representing [Business Name]'s work in [City Name]"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-kicker">Licensed Plumbers Serving [City Name]</p>
+      <h1 class="hero-headline">Reliable Plumbing, Done Right</h1>
+      <p class="hero-subhead">
+        From burst pipes to full repipes, [Business Name] brings [City Name] fast response times,
+        upfront pricing, and workmanship that lasts. Available for emergency calls, day or night.
+      </p>
+      <a href="tel:+17811231234" class="btn-primary btn-large">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+        <span>Call Now at +1 (781) 123-1234</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <section class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <i class="fa-solid fa-clock" aria-hidden="true"></i>
+        <span>24/7 Emergency Service</span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+        <span>Licensed &amp; Insured Plumbers</span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>
+        <span>Upfront, Honest Pricing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do -->
+  <section class="services" id="services">
+    <div class="section-heading">
+      <h2>What We Do</h2>
+      <div class="accent-line"></div>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card js-fade-in">
+        <div class="service-icon"><i class="fa-solid fa-droplet" aria-hidden="true"></i></div>
+        <h3>Leak Detection &amp; Repair</h3>
+        <p>From a slow drip to a burst line, we find the source fast and fix it right the first time.</p>
+      </div>
+
+      <div class="service-card js-fade-in">
+        <div class="service-icon"><i class="fa-solid fa-water" aria-hidden="true"></i></div>
+        <h3>Drain &amp; Sewer Cleaning</h3>
+        <p>Clogged drains and slow-running sewer lines cleared with professional-grade equipment, not guesswork.</p>
+      </div>
+
+      <div class="service-card js-fade-in">
+        <div class="service-icon"><i class="fa-solid fa-fire-flame-simple" aria-hidden="true"></i></div>
+        <h3>Water Heater Installation &amp; Repair</h3>
+        <p>Same-day water heater repairs and installs, sized right for your home and your budget.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Reviews -->
+  <section class="reviews" id="reviews">
+    <div class="section-heading">
+      <h2>Google Reviews</h2>
+      <div class="rating-summary">
+        <div class="rating-stars" aria-hidden="true">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p class="rating-text">5.0 Rating (184+ Reviews)</p>
+      </div>
+    </div>
+
+    <div class="reviews-carousel js-fade-in">
+      <button type="button" class="carousel-btn carousel-btn-prev" id="reviewPrevBtn" aria-label="Show previous review">
+        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+      </button>
+
+      <div class="reviews-grid" id="reviewsGrid" aria-live="polite">
+        <!-- Review cards are rendered here by script.js -->
+      </div>
+
+      <button type="button" class="carousel-btn carousel-btn-next" id="reviewNextBtn" aria-label="Show next review">
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about-inner js-fade-in">
+      <h2>About [Business Name]</h2>
+      <p class="about-subtitle">Trusted by [City Name] families since 1958</p>
+      <p>
+        [Business Name] was built on a simple idea: show up on time, do the work right, and treat every
+        home like it is the only one on the schedule. Three generations later, that has not changed.
+      </p>
+      <p>
+        Every plumber on our team is licensed, insured, and trained to handle everything from a dripping
+        faucet to a full repipe. When something goes wrong with your water, we are the call [City Name]
+        has trusted for decades.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <p class="footer-copyright">&copy; 2026 [Business Name]. All Rights Reserved.</p>
+    </div>
+
+    <div class="footer-right">
+      <a href="#" class="social-icon" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+      </a>
+      <a href="#" class="social-icon" aria-label="X">
+        <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+      </a>
+      <a href="#" class="social-icon" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

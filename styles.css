@@ -1,0 +1,543 @@
+/* ==========================================================================
+   Color system — 60-30-10 rule
+   60% Dominant canvas:  --color-canvas / --color-white
+   30% Structure & text: --color-navy / --color-navy-soft
+   10% Accent / CTAs:    --color-orange
+   ========================================================================== */
+
+:root {
+  --color-canvas: #F8FAFC;
+  --color-white: #FFFFFF;
+  --color-navy: #0F172A;
+  --color-navy-soft: #1E293B;
+  --color-orange: #EA580C;
+  --color-orange-dark: #C2410C;
+  --color-gray-light: #F1F5F9;
+  --color-border: #E2E8F0;
+  --color-text-muted: #64748B;
+  --color-text-body: #334155;
+  --color-text-on-dark-muted: #94A3B8;
+  --color-amber: #F59E0B;
+
+  --header-height: 84px;
+  --transition-base: 0.3s ease;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --max-width: 1180px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--color-navy);
+  background-color: var(--color-canvas);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3 { font-weight: 800; line-height: 1.2; margin: 0; }
+p { margin: 0; }
+
+:focus-visible {
+  outline: 3px solid var(--color-orange);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Scroll reveal — added by script.js only, so content stays visible if JS
+   never runs
+   ========================================================================== */
+
+.fade-in-ready {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.fade-in-ready.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.services-grid .service-card:nth-child(2) { transition-delay: 0.08s; }
+.services-grid .service-card:nth-child(3) { transition-delay: 0.16s; }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-md);
+  min-height: 48px;
+  text-align: center;
+  line-height: 1.35;
+  transition: background-color var(--transition-base), transform var(--transition-base);
+}
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: var(--color-orange-dark);
+  transform: translateY(-1px);
+}
+
+.btn-large {
+  font-size: clamp(0.92rem, 2.4vw, 1.05rem);
+  padding: 1rem 1.75rem;
+}
+
+.btn-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-md);
+  min-height: 44px;
+  white-space: nowrap;
+  transition: background-color var(--transition-base), transform var(--transition-base);
+}
+.btn-call:hover,
+.btn-call:focus-visible {
+  background-color: var(--color-orange-dark);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Header — utilities for the shrink-on-scroll transition
+   ========================================================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(15, 23, 42, 0.35);
+  padding-block: 1.5rem;
+  transition:
+    padding var(--transition-base),
+    background-color var(--transition-base),
+    backdrop-filter var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.site-header.scrolled {
+  background-color: rgba(15, 23, 42, 0.97);
+  padding-block: 0.75rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-white);
+  letter-spacing: -0.01em;
+}
+
+.nav-desktop { display: none; }
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.nav-list a {
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  padding-block: 0.25rem;
+}
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-orange);
+  transition: width var(--transition-base);
+}
+.nav-list a:hover::after,
+.nav-list a:focus-visible::after { width: 100%; }
+
+@media (min-width: 900px) {
+  .nav-desktop { display: flex; }
+}
+
+/* ==========================================================================
+   Hero — lighter dark tint via mix-blend-mode, with text-shadow as a
+   readability safety net now that the overlay is lighter
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--header-height);
+  min-height: calc(100vh - 140px); 
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url('https://images.unsplash.com/photo-1503789146722-cf137a3c0fea?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(1.1) saturate(0.95);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: rgba(15, 23, 42, 0.45);
+  mix-blend-mode: multiply;
+}
+
+.hero-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.hero-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 1.25rem;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+.hero-headline {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+}
+
+.hero-subhead {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   Trust Bar
+   ========================================================================== */
+
+.trust-bar {
+  background-color: var(--color-navy);
+  padding-block: 1.5rem;
+}
+
+.trust-bar-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem 2.5rem;
+}
+
+.trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-white);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.trust-item i { color: var(--color-orange); font-size: 1rem; }
+
+/* ==========================================================================
+   Shared section spacing
+   ========================================================================== */
+
+.services, .reviews, .about {
+  padding-block: clamp(3.5rem, 6vw, 6rem);
+  padding-inline: 1.5rem;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: var(--max-width);
+  margin: 0 auto 3rem;
+}
+.section-heading h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); }
+
+.accent-line {
+  width: 56px;
+  height: 4px;
+  background-color: var(--color-orange);
+  border-radius: 2px;
+  margin: 1rem auto 0;
+}
+
+/* ==========================================================================
+   What We Do
+   ========================================================================== */
+
+.services-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.service-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 1.75rem;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+.service-card:hover {
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+  transform: translateY(-4px);
+}
+
+.service-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background-color: rgba(234, 88, 12, 0.1);
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.service-card h3 { font-size: 1.15rem; margin-bottom: 0.65rem; }
+.service-card p { color: var(--color-text-muted); font-size: 0.95rem; }
+
+@media (max-width: 768px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   Google Reviews — infinite-loop carousel, equal-height cards
+   ========================================================================== */
+
+.reviews { background-color: var(--color-gray-light); }
+
+.rating-summary {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.rating-stars { color: var(--color-amber); font-size: 1.1rem; letter-spacing: 0.15em; }
+.rating-text { font-weight: 700; color: var(--color-navy); }
+
+.reviews-carousel {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.reviews-grid {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: stretch; /* Stretches cards in the same row to equal height */
+  gap: 1.75rem;
+}
+
+.review-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+  height: 100%;
+  min-height: 260px;
+}
+
+.review-text {
+  flex: 1;
+  color: var(--color-navy);
+  font-size: 0.98rem;
+  overflow-wrap: break-word;
+  margin-bottom: 1.5rem; /* Replaces grid gap for consistent spacing */
+}
+
+.reviewer { display: flex; align-items: center; gap: 0.85rem; }
+
+.reviewer-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.reviewer-name { font-weight: 600; font-size: 0.95rem; }
+.reviewer-meta { color: var(--color-text-muted); font-size: 0.82rem; }
+
+.carousel-btn {
+  flex-shrink: 0;
+  align-self: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition-base), color var(--transition-base), border-color var(--transition-base);
+}
+.carousel-btn:hover,
+.carousel-btn:focus-visible {
+  background-color: var(--color-orange);
+  border-color: var(--color-orange);
+  color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .reviews-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .carousel-btn { width: 40px; height: 40px; }
+  .reviews-carousel { gap: 0.6rem; }
+}
+
+/* ==========================================================================
+   About
+   ========================================================================== */
+
+.about-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+.about-inner h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: 0.75rem; }
+.about-subtitle {
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-bottom: 1.75rem;
+  font-size: 1.05rem;
+}
+.about-inner p + p { margin-top: 1.25rem; }
+.about-inner p { color: var(--color-text-body); }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer { background-color: var(--color-navy); padding-block: 1.5rem; }
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.footer-copyright {
+  color: var(--color-text-on-dark-muted);
+  font-size: 0.85rem;
+}
+
+.footer-right { display: flex; gap: 0.75rem; }
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+.social-icon:hover,
+.social-icon:focus-visible { background-color: var(--color-orange); }
+
+/* ==========================================================================
+   Small-screen refinements — no clipping, no horizontal scroll bugs
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .header-inner { padding-inline: 1rem; }
+  .btn-call span { display: none; }
+  .btn-call { padding: 0.65rem; width: 44px; justify-content: center; }
+  .hero-content { padding-inline: 1.25rem; }
+}
