@@ -526,11 +526,14 @@ p { margin: 0; }
    ========================================================================== */
 
 @media (max-width: 768px) {
-  /* 1. Taller / Longer Hero Shot on Mobile */
   .hero {
-    min-height: calc(85vh - var(--header-height));
-    padding-top: calc(var(--header-height) + 3rem);
-    padding-bottom: 4rem;
+    /* Fallback for older phones */
+    min-height: calc(100vh - 95px); 
+    /* Modern fix for mobile browser address bars */
+    min-height: calc(100svh - 95px); 
+    
+    padding-top: calc(var(--header-height) + 1.5rem);
+    padding-bottom: 2rem;
   }
 
   /* 2. Section Whitespace */
