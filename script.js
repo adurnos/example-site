@@ -1,204 +1,203 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function () {
+/* ==========================================================================
+   [Business Name] - vanilla interactions
+   1. Shrinking header (rAF-scoped, state-guarded)
+   2. Floating emergency call toggle
+   3. Seamless infinite review carousel with manual controls and drag support
+   4. Copyright year
+   ========================================================================== */
 
-  /* ------------------------------------------------------------------ */
-  /* Header shrink-on-scroll behavior                                    */
-  /* ------------------------------------------------------------------ */
-
+(function () {
   var header = document.getElementById('siteHeader');
+  var floatingCall = document.getElementById('floatingCall');
 
-  if (header) {
-    var scrollThreshold = 50;
-    var headerTicking = false;
+  var isShrunk = false;
+  var callVisible = false;
+  var ticking = false;
 
-    var updateHeader = function () {
-      if (window.scrollY > scrollThreshold) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+  /* ---- 1 + 2. Header shrink & floating call ----------------------------- */
+
+  function onScrollState() {
+    var y = window.scrollY || window.pageYOffset;
+
+    if (header) {
+      var shouldShrink = y > 16;
+      if (shouldShrink !== isShrunk) {
+        isShrunk = shouldShrink;
+        header.classList.toggle('is-shrunk', isShrunk);
       }
-      headerTicking = false;
-    };
-
-    var onHeaderScroll = function () {
-      if (!headerTicking) {
-        window.requestAnimationFrame(updateHeader);
-        headerTicking = true;
-      }
-    };
-
-    window.addEventListener('scroll', onHeaderScroll, { passive: true });
-
-    // Run once on load in case the page opens already scrolled (e.g. anchor link)
-    updateHeader();
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Google Reviews carousel — infinite loop in both directions          */
-  /* ------------------------------------------------------------------ */
-
-  var reviewsData = [
-    {
-      initials: 'MC',
-      name: 'Marie Coleman',
-      text: 'Called about a leak early on a Sunday and someone was at our door within the hour. Straightforward about pricing the whole time and cleaned up before leaving. Would call again without hesitation.'
-    },
-    {
-      initials: 'DR',
-      name: 'David Reyes',
-      text: 'We have used [Business Name] for years and the quality has never slipped. Fair quotes, on-time arrivals, and work that holds up. Exactly what you want from a local plumbing company.'
-    },
-    {
-      initials: 'JT',
-      name: 'James Turner',
-      text: 'Our water heater died on a Friday night and they had a new one installed by Saturday afternoon. Reasonable price and no upselling.'
-    },
-    {
-      initials: 'SP',
-      name: 'Sarah Patel',
-      text: 'Our drain was backing up into the shower and they cleared it the same day. They explained what caused it and how to keep it from happening again.'
-    },
-    {
-      initials: 'RK',
-      name: 'Robert Kim',
-      text: 'Repiped half our house after an inspection flagged old galvanized pipes. Clean work, respectful of our home, and finished on schedule.'
-    },
-    {
-      initials: 'AL',
-      name: 'Angela Lopez',
-      text: 'Second time using [Business Name] and just as impressed as the first. Punctual, upfront about cost, and the work has held up perfectly.'
-    }
-  ];
-
-  var reviewsGrid = document.getElementById('reviewsGrid');
-  var prevBtn = document.getElementById('reviewPrevBtn');
-  var nextBtn = document.getElementById('reviewNextBtn');
-
-  if (reviewsGrid && prevBtn && nextBtn && reviewsData.length > 0) {
-    var currentIndex = 0;
-    var mobileQuery = window.matchMedia('(max-width: 768px)');
-
-    var getVisibleCount = function () {
-      return mobileQuery.matches ? 1 : 2;
-    };
-
-    var buildReviewCard = function (review) {
-      var card = document.createElement('div');
-      card.className = 'review-card';
-
-      var text = document.createElement('p');
-      text.className = 'review-text';
-      text.textContent = review.text;
-
-      var reviewer = document.createElement('div');
-      reviewer.className = 'reviewer';
-
-      var avatar = document.createElement('div');
-      avatar.className = 'reviewer-avatar';
-      avatar.textContent = review.initials;
-
-      var info = document.createElement('div');
-      info.className = 'reviewer-info';
-
-      var name = document.createElement('p');
-      name.className = 'reviewer-name';
-      name.textContent = review.name;
-
-      var meta = document.createElement('p');
-      meta.className = 'reviewer-meta';
-      meta.textContent = 'Verified Google Review';
-
-      info.appendChild(name);
-      info.appendChild(meta);
-      reviewer.appendChild(avatar);
-      reviewer.appendChild(info);
-      card.appendChild(text);
-      card.appendChild(reviewer);
-
-      return card;
-    };
-
-    var renderReviews = function () {
-      var visibleCount = getVisibleCount();
-      reviewsGrid.innerHTML = '';
-
-      for (var i = 0; i < visibleCount; i++) {
-        var reviewIndex = (currentIndex + i) % reviewsData.length;
-        reviewsGrid.appendChild(buildReviewCard(reviewsData[reviewIndex]));
-      }
-    };
-
-    var showNext = function () {
-      currentIndex = (currentIndex + 1) % reviewsData.length;
-      renderReviews();
-    };
-
-    var showPrev = function () {
-      currentIndex = (currentIndex - 1 + reviewsData.length) % reviewsData.length;
-      renderReviews();
-    };
-
-    nextBtn.addEventListener('click', showNext);
-    prevBtn.addEventListener('click', showPrev);
-
-    if (typeof mobileQuery.addEventListener === 'function') {
-      mobileQuery.addEventListener('change', renderReviews);
-    } else if (typeof mobileQuery.addListener === 'function') {
-      mobileQuery.addListener(renderReviews);
     }
 
-    renderReviews();
+    if (floatingCall) {
+      var shouldShow = y > 640;
+      if (shouldShow !== callVisible) {
+        callVisible = shouldShow;
+        floatingCall.classList.toggle('is-visible', callVisible);
+      }
+    }
+
+    ticking = false;
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Scroll-triggered fade-in via IntersectionObserver                   */
-  /* Re-triggers every time the element enters the viewport             */
-  /* ------------------------------------------------------------------ */
+  function requestStateUpdate() {
+    if (!ticking) {
+      window.requestAnimationFrame(onScrollState);
+      ticking = true;
+    }
+  }
 
-  var fadeTargets = document.querySelectorAll('.js-fade-in');
+  if (header || floatingCall) {
+    window.addEventListener('scroll', requestStateUpdate, { passive: true });
+    onScrollState();
+  }
 
-  if (fadeTargets.length > 0) {
-    if (!('IntersectionObserver' in window)) {
-      fadeTargets.forEach(function (el) {
-        el.classList.add('is-visible');
+  /* ---- 3. Review carousel — seamless infinite loop ----------------------
+     The cards are duplicated into three adjacent sets [A][B][C]; B is the
+     "home" set and scrolling starts at its left edge. Native scrolling does
+     the heavy lifting (so it works by dragging with a mouse or a finger),
+     and a rAF-throttled scroll listener instantly teleports the track back
+     to the equivalent card whenever the home set is left in either
+     direction. Because every set is pixel-identical, the wrap is invisible
+     and the loop feels endless for arrows, keyboard, and drag alike.
+     ---------------------------------------------------------------------- */
+
+  var track = document.getElementById('reviewTrack');
+  var prevBtn = document.getElementById('reviewPrev');
+  var nextBtn = document.getElementById('reviewNext');
+
+  if (track && prevBtn && nextBtn) {
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var GAP = 24; // matches the 1.5rem gap in .carousel-track
+
+    // ---- Build [A][B][C]: clones before/after the original cards ---------
+    var originals = Array.prototype.slice.call(track.children);
+    var count = originals.length;
+    if (count) {
+      var lead = document.createDocumentFragment();
+      var tail = document.createDocumentFragment();
+      originals.forEach(function (card) {
+        var a = card.cloneNode(true);
+        a.setAttribute('aria-hidden', 'true');
+        lead.appendChild(a);
+        var c = card.cloneNode(true);
+        c.setAttribute('aria-hidden', 'true');
+        tail.appendChild(c);
       });
-    } else {
-      fadeTargets.forEach(function (el) {
-        el.classList.add('fade-in-ready');
-      });
+      track.insertBefore(lead, originals[0]); // [A]
+      track.appendChild(tail);                // [C]
+    }
 
-      var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        } else {
-          entry.target.classList.remove('is-visible');
+    function cardStep() {
+      var card = track.querySelector('.review-card');
+      if (!card) return Math.round(track.clientWidth * 0.8);
+      return Math.round(card.getBoundingClientRect().width + GAP);
+    }
+
+    function setWidth() { return cardStep() * count; }
+
+    // Home set B lives in [setWidth, 2*setWidth). Crossing either edge
+    // teleports to the pixel-identical card one set over (instant, no CSS
+    // transition involved since this is native scroll position).
+    function keepInLoop() {
+      var sw = setWidth();
+      if (!sw) return;
+      var pos = track.scrollLeft;
+      var target = null;
+      if (pos >= 2 * sw) {
+        target = pos - sw;
+      } else if (pos < sw) {
+        target = pos + sw;
+      }
+      if (target !== null) {
+        track.scrollLeft = target;
+        // Keep an active drag continuous across the teleport: refresh BOTH
+        // the scroll baseline and the pointer X so the next pointermove
+        // continues from the wrapped position instead of the pre-wrap one.
+        if (dragging) {
+          dragStartLeft = target;
+          dragStartX = lastDragX;
         }
+      }
+    }
+
+    var rafPending = false;
+    track.addEventListener('scroll', function () {
+      if (rafPending) return;
+      rafPending = true;
+      window.requestAnimationFrame(function () {
+        rafPending = false;
+        keepInLoop();
       });
-    }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -60px 0px'
+    }, { passive: true });
+
+    // ---- Arrow buttons (never disabled: the loop has no end) -------------
+    function go(direction) {
+      if (!count) return;
+      track.scrollBy({ left: direction * cardStep(), behavior: reducedMotion ? 'auto' : 'smooth' });
+    }
+
+    prevBtn.addEventListener('click', function () { go(-1); });
+    nextBtn.addEventListener('click', function () { go(1); });
+
+    // ---- Mouse/pen drag-to-scroll (touch already scrolls natively) -------
+    var dragging = false;
+    var dragStartX = 0;
+    var dragStartLeft = 0;
+    var lastDragX = 0;
+
+    // Manual drag-to-scroll only for mouse/pen: touch relies on native
+    // scrolling (touch-action: pan-x), so we never capture the pointer or
+    // fight the browser's own horizontal panning on mobile.
+    track.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' && e.pointerType !== 'pen') return;
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      dragging = true;
+      dragStartX = e.clientX;
+      lastDragX = e.clientX;
+      dragStartLeft = track.scrollLeft;
+      track.classList.add('is-dragging');
+      if (track.setPointerCapture) {
+        try { track.setPointerCapture(e.pointerId); } catch (err) { /* noop */ }
+      }
     });
 
-    fadeTargets.forEach(function (el) {
-      revealObserver.observe(el);
+    track.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      lastDragX = e.clientX;
+      track.scrollLeft = dragStartLeft - (e.clientX - dragStartX);
     });
+
+    function endDrag() {
+      if (!dragging) return;
+      dragging = false;
+      track.classList.remove('is-dragging');
+      keepInLoop();
+    }
+    track.addEventListener('pointerup', endDrag);
+    track.addEventListener('pointercancel', endDrag);
+    track.addEventListener('pointerleave', endDrag);
+
+    track.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowLeft') { event.preventDefault(); go(-1); }
+      else if (event.key === 'ArrowRight') { event.preventDefault(); go(1); }
+    });
+
+    // ---- Boot: land on the left edge of home set B. On resize, only
+    //      re-center if the view has drifted out of the home band, so the
+    //      user's current card is preserved while the window resizes. ------
+    function home() {
+      if (!count) return;
+      track.scrollLeft = setWidth();
+    }
+    window.addEventListener('resize', keepInLoop);
+    home();
   }
-}
 
-function fitHeroAndTrustBar() {
-  var header = document.getElementById('siteHeader');
-  var hero = document.querySelector('.hero');
-  var trustBar = document.querySelector('.trust-bar');
+  /* ---- 4. Copyright year ------------------------------------------------ */
 
-  if (header && hero && trustBar) {
-    var targetHeroHeight = window.innerHeight - header.offsetHeight - trustBar.offsetHeight;
-    hero.style.minHeight = Math.max(targetHeroHeight, 420) + 'px';
+  var yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = String(new Date().getFullYear());
   }
-}
-
-fitHeroAndTrustBar();
-window.addEventListener('resize', fitHeroAndTrustBar);
-
-});
+})();
