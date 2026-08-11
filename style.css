@@ -136,7 +136,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
   background: var(--navy-soft);
 }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); align-items: center; gap: clamp(44px, 7vw, 112px); }
-.hero-copy { max-width: 570px; padding-bottom: 8px; transform: translateY(-14px); }
+.hero-copy { max-width: 570px; padding-bottom: 8px; }
+
+@media (min-width: 981px) {
+  .hero-grid {
+    transform: translateY(-64px);
+  }
+}
 .eyebrow, .footer-label {
   margin: 0;
   color: var(--navy);
@@ -446,6 +452,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
     gap: 0;
   }
   .hero-copy {
+    position: relative;
+    top: 0;
     max-width: 570px;
     padding: 24px 22px 28px;
     transform: none;
