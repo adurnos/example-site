@@ -189,6 +189,16 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .review-viewport::-webkit-scrollbar { display: none; }
 .review-viewport.is-dragging { cursor: grabbing; scroll-behavior: auto; }
 
+/* Mobile transform‑driven drag */
+.review-viewport.is-mobile-drag {
+  cursor: default;
+  touch-action: none;
+  overflow: hidden;
+}
+.review-viewport.is-mobile-drag .review-track {
+  will-change: transform;
+}
+
 .review-track {
   display: flex;
   gap: 16px;
