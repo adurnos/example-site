@@ -164,12 +164,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hero-media-caption { position: absolute; z-index: 1; right: 23px; bottom: 20px; left: 23px; display: flex; align-items: center; gap: 11px; color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
 .caption-rule { height: 1px; flex: 1; background: rgba(255, 255, 255, 0.6); }
 
-.section { padding: clamp(92px, 12vw, 174px) 0; }
+.section { padding: 64px 0; }
 .section-heading { max-width: 710px; }
-.section-heading h2, .reviews h2, .about h2 { margin-top: 17px; font-size: clamp(2.35rem, 4.8vw, 4.55rem); font-weight: 800; line-height: 1.02; }
-.section-heading > p:last-child { max-width: 500px; margin: 24px 0 0; color: var(--grey); font-size: 1.06rem; }
+.section-heading h2, .reviews h2, .about h2 { margin-top: 0; font-size: clamp(2.35rem, 4.8vw, 4.55rem); font-weight: 800; line-height: 1.02; }
+.section-heading > p:last-child { max-width: 500px; margin: 16px 0 0; color: var(--grey); font-size: 1.06rem; }
 
-.service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 71px; overflow: hidden; border: 1px solid var(--black); border-radius: var(--radius); }
+.service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 40px; overflow: hidden; border: 1px solid var(--black); border-radius: var(--radius); }
 .service-item { display: flex; min-height: 318px; flex-direction: column; align-items: flex-start; padding: 24px 22px 26px; border-right: 1px solid var(--black); transition: background-color 0.25s ease, transform 0.25s ease; }
 .service-item:last-child { border-right: 0; }
 .service-item:hover { background: var(--navy-soft); transform: translateY(-4px); }
@@ -182,7 +182,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .reviews-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 42px; }
 
 .review-viewport {
-  margin-top: 70px;
+  margin-top: 40px;
   overflow-x: auto;
   overflow-y: hidden;
   cursor: grab;
@@ -268,7 +268,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .about { border-bottom: 0; }
 .about-heading { text-align: center; }
 .about-heading h2 { max-width: 800px; margin: 0 auto; }
-.about-grid { display: grid; grid-template-columns: minmax(0, 510px) minmax(0, 300px); align-items: center; justify-content: center; gap: clamp(28px, 4vw, 64px); margin-top: 58px; }
+.about-grid { display: grid; grid-template-columns: minmax(0, 510px) minmax(0, 300px); align-items: center; justify-content: center; gap: clamp(28px, 4vw, 64px); margin-top: 40px; }
 .about-copy { max-width: 510px; }
 .about-copy .eyebrow { margin-bottom: 26px; }
 .about-lede { margin: 0; font-family: "Plus Jakarta Sans", sans-serif; font-size: clamp(1.35rem, 2vw, 1.72rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1.25; }
@@ -467,10 +467,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .hero-media-caption { right: 16px; bottom: 15px; left: 16px; font-size: 9px; }
   .hero-media-caption, .caption-rule { opacity: 0.86; }
 
-  .section { padding: 88px 0; }
+  .section { padding: 48px 0; }
   .section-heading h2, .reviews h2, .about h2 { font-size: clamp(2.3rem, 11vw, 3.3rem); }
 
-  .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 52px; }
+  .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 32px; }
   .service-item { min-height: 310px; padding: 18px 15px 19px; border-right: 1px solid var(--black); }
   .service-item:nth-child(2n) { border-right: 0; }
   .service-item h3 { margin-top: 46px; font-size: 1.18rem; }
@@ -478,7 +478,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
   .reviews-heading { display: block; }
   .review-viewport {
-    margin-top: 49px;
+    margin-top: 32px;
     margin-right: -18px;
     margin-left: -18px;
     padding-right: 18px;
@@ -493,7 +493,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
   .about-heading { text-align: left; }
   .about-heading h2 { margin-left: 0; }
-  .about-grid { display: flex; flex-direction: column; align-items: center; gap: 36px; margin-top: 40px; }
+  .about-grid { display: flex; flex-direction: column; align-items: center; gap: 28px; margin-top: 32px; }
   .about-copy { width: min(100%, 510px); max-width: 510px; }
   .about-media { width: min(100%, 240px); }
 
