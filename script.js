@@ -166,13 +166,13 @@
       // Boost the flick a touch so it feels airy and responsive
       vel = v * 1.15;
       const step = () => {
-        vel *= 0.97;
+        vel *= 0.985;
         pos += vel;
         const sw = getSetWidth();
         if (pos > -sw * 0.02) pos -= sw;
         else if (pos < -sw * 2.98) pos += sw;
         applyPos();
-        if (Math.abs(vel) < 0.04) { animId = null; wrap(); applyPos(); return; }
+        if (Math.abs(vel) < 0.015) { animId = null; wrap(); applyPos(); return; }
         animId = requestAnimationFrame(step);
       };
       animId = requestAnimationFrame(step);
