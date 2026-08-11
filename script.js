@@ -162,16 +162,17 @@
 
     const startMomentum = (v) => {
       stopAnim();
-      if (Math.abs(v) < 0.12 || prefersReducedMotion) { wrap(); applyPos(); return; }
-      vel = v;
+      if (Math.abs(v) < 0.08 || prefersReducedMotion) { wrap(); applyPos(); return; }
+      // Boost the flick a touch so it feels airy and responsive
+      vel = v * 1.15;
       const step = () => {
-        vel *= 0.938;
+        vel *= 0.97;
         pos -= vel;
         const sw = getSetWidth();
         if (pos > -sw * 0.02) pos -= sw;
         else if (pos < -sw * 2.98) pos += sw;
         applyPos();
-        if (Math.abs(vel) < 0.06) { animId = null; wrap(); applyPos(); return; }
+        if (Math.abs(vel) < 0.04) { animId = null; wrap(); applyPos(); return; }
         animId = requestAnimationFrame(step);
       };
       animId = requestAnimationFrame(step);
@@ -218,12 +219,12 @@
       pid = null;
       reviewViewport.classList.remove("is-dragging");
       if (deltas.length >= 3) {
-        // Use the last 3 samples for a stable velocity estimate
-        const recent = deltas.slice(-3);
+        // Last 2 samples for a snappier velocity that tracks flick speed
+        const recent = deltas.slice(-2);
         const a = recent[0];
         const b = recent[recent.length - 1];
         const dt = b.t - a.t;
-        if (dt > 0 && dt < 200) startMomentum((b.x - a.x) / dt);
+        if (dt > 0 && dt < 150) startMomentum((b.x - a.x) / dt);
         else { wrap(); applyPos(); }
       } else {
         wrap();
