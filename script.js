@@ -167,7 +167,7 @@
       vel = v * 1.15;
       const step = () => {
         vel *= 0.97;
-        pos -= vel;
+        pos += vel;
         const sw = getSetWidth();
         if (pos > -sw * 0.02) pos -= sw;
         else if (pos < -sw * 2.98) pos += sw;
