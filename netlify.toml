@@ -1,0 +1,10 @@
+# Netlify build configuration
+# On every deploy, the command below replaces the "[Insert Website URL]"
+# placeholder in index.html with the real site URL ($URL — your custom
+# domain if set, otherwise your *.netlify.app subdomain).
+# That keeps the Open Graph / link-preview meta tags working without
+# ever editing the HTML by hand.
+
+[build]
+  command = 'sed -i "s|\[Insert Website URL\]|$URL|g" index.html'
+  publish = "."
