@@ -410,7 +410,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   #services, #reviews, #about { scroll-margin-top: 82px; }
 
   .hero {
-    min-height: min(760px, calc(100dvh - 18px));
+    min-height: min(740px, calc(100dvh - 18px));
     align-items: stretch;
     padding: calc(var(--header-height) + 54px) 0 60px;
     background-color: #18202b;
@@ -470,7 +470,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
     padding-left: 18px;
   }
   .review-item {
-    width: 100%;
+    width: min(310px, calc(100vw - 54px));
     min-height: 260px;
     padding: 23px 21px;
   }
@@ -502,7 +502,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .service-item { min-height: 270px; }
   .service-item h3 { margin-top: 24px; }
 
-  .review-item { width: 100%; min-height: 282px; }
+  .review-item { width: min(272px, calc(100vw - 54px)); min-height: 282px; }
 
   .footer-grid { display: block; }
   .footer-block { margin-bottom: 16px; }
