@@ -414,7 +414,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
     align-items: stretch;
     padding: calc(var(--header-height) + 54px) 0 60px;
     background-color: #18202b;
-    background-image: linear-gradient(90deg, rgba(8, 13, 20, 0.8) 0%, rgba(8, 13, 20, 0.52) 58%, rgba(8, 13, 20, 0.2) 100%), url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1600&q=85");
+    background-image: linear-gradient(90deg, rgba(0, 18, 62, 0.68) 0%, rgba(0, 18, 62, 0.42) 58%, rgba(0, 18, 62, 0.12) 100%), url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1600&q=85");
     background-position: center;
     background-size: cover;
   }
@@ -451,10 +451,15 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .section-heading h2, .reviews h2, .about h2 { font-size: clamp(2.3rem, 11vw, 3.3rem); }
 
   .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 32px; }
-  .service-item { min-height: 310px; padding: 18px 15px 19px; border-right: 1px solid var(--black); }
+  .service-item {
+    min-height: 250px;
+    padding: 14px 13px 16px;
+    border-right: 1px solid var(--black);
+  }
   .service-item:nth-child(2n) { border-right: 0; }
-  .service-item h3 { margin-top: 46px; font-size: 1.18rem; }
-  .service-item p { font-size: 13px; }
+  .service-item:nth-child(-n + 2) { border-bottom: 1px solid var(--black); }
+  .service-item h3 { margin-top: 28px; font-size: 1.18rem; }
+  .service-item p { margin: 12px 0 18px; font-size: 13px; }
 
   .reviews-heading { display: block; }
   .review-viewport {
@@ -465,7 +470,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
     padding-left: 18px;
   }
   .review-item {
-    width: min(310px, calc(100vw - 54px));
+    width: 100%;
     min-height: 260px;
     padding: 23px 21px;
   }
@@ -474,7 +479,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .about-heading { text-align: left; }
   .about-heading h2 { margin-left: 0; }
   .about-grid { display: flex; flex-direction: column; align-items: center; gap: 28px; margin-top: 32px; }
-  .about-copy { width: min(100%, 510px); max-width: 510px; }
+  .about-copy {
+    width: min(100%, 510px);
+    max-width: 510px;
+    text-align: center;
+  }
   .about-media { width: min(100%, 240px); }
 
   .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
@@ -490,10 +499,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .brand-name { max-width: none; }
   .brand-logo, .brand-fallback { width: 34px; height: 34px; flex-basis: 34px; }
 
-  .service-item { min-height: 330px; }
-  .service-item h3 { margin-top: 36px; }
+  .service-item { min-height: 270px; }
+  .service-item h3 { margin-top: 24px; }
 
-  .review-item { width: min(272px, calc(100vw - 54px)); min-height: 282px; }
+  .review-item { width: 100%; min-height: 282px; }
 
   .footer-grid { display: block; }
   .footer-block { margin-bottom: 16px; }
