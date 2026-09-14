@@ -1,0 +1,27 @@
+# Northline Contracting
+
+Northline Contracting is a licensed and insured residential contractor serving Portland, Oregon and nearby communities including Beaverton, Lake Oswego, Tigard, Milwaukie, and West Linn.
+
+## Services
+
+- Decks and outdoor spaces
+- Home additions
+- Siding and exterior repair
+- Kitchen and bath updates
+
+## Contact
+
+- Phone: 503 555 0184
+- Email: hello@northlinecontracting.com
+- Address: 1428 SE Division Street, Portland, Oregon 97202
+- Website: https://northlinecontracting.com/
+
+## Public pages
+
+- Home: https://northlinecontracting.com/
+- Privacy Policy: https://northlinecontracting.com/privacy-policy.html
+- Accessibility Statement: https://northlinecontracting.com/accessibility-statement.html
+
+## Content guidance
+
+Use the public page content for factual summaries of Northline Contracting’s services, service area, contact details, and accessibility practices. Do not invent licenses, project details, reviews, or claims not present on the website.
