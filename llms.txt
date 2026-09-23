@@ -1,27 +1,27 @@
-# Northline Contracting
+# Rose City Plumbing Co.
 
-Northline Contracting is a licensed and insured residential contractor serving Portland, Oregon and nearby communities including Beaverton, Lake Oswego, Tigard, Milwaukie, and West Linn.
+Rose City Plumbing Co. is a fictional sample plumbing business used to demonstrate a colorful, conversion-focused local service website. It is not a real business. All contact details, service claims, and service-area examples are placeholders.
 
-## Services
+## Example services shown
 
-- Decks and outdoor spaces
-- Home additions
-- Siding and exterior repair
-- Kitchen and bath updates
+- Leak and pipe repair
+- Clogged drains
+- Water heaters
+- Toilets and fixtures
+- Remodel rough-ins
+- Plumbing checkups
 
-## Contact
+## Demo behavior
 
-- Phone: 503 555 0184
-- Email: hello@northlinecontracting.com
-- Address: 1428 SE Division Street, Portland, Oregon 97202
-- Website: https://northlinecontracting.com/
+- The sample phone number is 503-555-0148 and is not a real service line.
+- The contact form is set up for FormSubmit with a clearly marked placeholder recipient (`your-email@example.com`); it will not work until the business replaces this with a real inbox and completes FormSubmit verification.
 
 ## Public pages
 
-- Home: https://northlinecontracting.com/
-- Privacy Policy: https://northlinecontracting.com/privacy-policy.html
-- Accessibility Statement: https://northlinecontracting.com/accessibility-statement.html
+- Home: https://rosecityplumbing.example/
+- Privacy: https://rosecityplumbing.example/privacy-policy.html
+- Accessibility: https://rosecityplumbing.example/accessibility-statement.html
 
-## Content guidance
+The `.example` domain is reserved for documentation and is not a live website.
 
-Use the public page content for factual summaries of Northline Contracting’s services, service area, contact details, and accessibility practices. Do not invent licenses, project details, reviews, or claims not present on the website.
+Before publishing, replace the old sample domain, phone number, and any other demo content with verified details for the real business.

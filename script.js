@@ -1,42 +1,28 @@
 (() => {
-  const header = document.querySelector('[data-header]');
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const nav = document.querySelector('[data-nav]');
-  const callButton = document.querySelector('[data-call-button]');
 
-  if (!header || !menuToggle || !nav || !callButton) {
-    return;
-  }
-
-  let previousScroll = window.scrollY;
+  if (!menuToggle || !nav) return;
 
   const closeMenu = () => {
     nav.classList.remove('is-open');
     menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Open navigation menu');
   };
 
   menuToggle.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('is-open');
     menuToggle.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  callButton.addEventListener('click', () => {
-    window.location.href = 'tel:+15035550184';
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
   });
 
   nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
 
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-    const scrollingDown = currentScroll > previousScroll;
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
 
-    if (currentScroll > 80 && scrollingDown) {
-      header.classList.add('is-hidden');
-      closeMenu();
-    } else if (!scrollingDown) {
-      header.classList.remove('is-hidden');
-    }
-
-    previousScroll = currentScroll;
-  }, { passive: true });
+  document.addEventListener('click', (event) => {
+    if (!nav.contains(event.target) && !menuToggle.contains(event.target)) closeMenu();
+  });
 })();

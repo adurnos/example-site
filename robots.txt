@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://northlinecontracting.com/sitemap.xml
+# Replace the reserved example domain with the live domain before deployment.
+Sitemap: https://rosecityplumbing.example/sitemap.xml
