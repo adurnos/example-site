@@ -43,7 +43,7 @@
   <main id="main-content">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__inner">
-        <div class="hero__copy">
+        <div class="hero__copy" data-reveal>
           <h1 id="hero-title">Need a plumber?<br><span>We can help.</span></h1>
           <p class="hero__intro">A leaking pipe, a stubborn drain, or a water heater on the fritz? We make home plumbing feel a whole lot less stressful.</p>
           <div class="hero__actions">
@@ -52,67 +52,67 @@
           </div>
         </div>
         <div class="hero__visual">
-          <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1500&q=85" alt="A plumber repairing indoor pipework in a home" fetchpriority="high">
-          <div class="hero__photo-label"><span>Here to help<br>at home</span></div>
-          <span class="hero__sticker" aria-hidden="true">PIPE<br>PROBLEM?<br><b>WE’RE ON IT.</b></span>
+          <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1500&q=85" data-reveal alt="A plumber repairing indoor pipework in a home" fetchpriority="high">
+          <div class="hero__photo-label" data-reveal><span>Here to help<br>at home</span></div>
+          <span class="hero__sticker" data-reveal aria-hidden="true">PIPE<br>PROBLEM?<br><b>WE’RE ON IT.</b></span>
         </div>
       </div>
     </section>
 
     <section class="section services-section" id="services" aria-labelledby="services-title">
-      <div class="section-heading">
+      <div class="section-heading" data-reveal>
         <div>
           <h2 id="services-title">What’s going on<br>with your <span>plumbing?</span></h2>
         </div>
       </div>
-      <div class="services-grid">
-        <a class="service-card service-card--blue" href="#contact">
+      <div class="services-grid" data-reveal>
+        <a class="service-card service-card--blue" href="#contact" data-service="Leak or pipe repair">
           <span class="service-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M24 5c-5.7 8.3-13 15.5-13 24a13 13 0 0 0 26 0C37 20.5 29.7 13.3 24 5Z"/><path d="M19 29c0 3 2.2 5 5 5"/></svg></span>
           <span class="service-card__title">Leaks &amp; pipe repair</span>
           <span class="service-card__copy">Drips, mystery puddles, and pipes that have seen better days.</span>
           <span class="service-card__link">Let’s find that leak</span>
         </a>
-        <a class="service-card service-card--cream" href="#contact">
+        <a class="service-card service-card--cream" href="#contact" data-service="Clogged drain">
           <span class="service-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M8 11h32M12 11v7a12 12 0 0 0 24 0v-7M24 30v9M17 39h14"/><path d="M18 17v2M24 17v2M30 17v2"/></svg></span>
           <span class="service-card__title">Clogged drains</span>
           <span class="service-card__copy">Slow sinks, backed-up tubs, and drains that just won’t cooperate.</span>
           <span class="service-card__link">Get things flowing</span>
         </a>
-        <a class="service-card service-card--yellow" href="#contact">
+        <a class="service-card service-card--yellow" href="#contact" data-service="Water heater">
           <span class="service-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M15 7h18v34H15zM18 12h12M20 36h8"/><path d="M23 18a3 3 0 1 0 2 5.2V30"/></svg></span>
           <span class="service-card__title">Water heaters</span>
           <span class="service-card__copy">No hot water? Strange noises? Let’s get your hot water back.</span>
           <span class="service-card__link">Check your water heater</span>
         </a>
-        <a class="service-card service-card--coral" href="#contact">
+        <a class="service-card service-card--coral" href="#contact" data-service="Toilet or fixture">
           <span class="service-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M10 22h28v17H10zM15 22v-5a9 9 0 0 1 18 0v5M24 30v4"/><path d="M18 12h-5M35 12h-5"/></svg></span>
           <span class="service-card__title">Toilets &amp; fixtures</span>
           <span class="service-card__copy">Running toilets, leaky faucets, and new fixtures that need fitting.</span>
           <span class="service-card__link">Fix that running toilet</span>
         </a>
-        <a class="service-card service-card--navy" href="#contact">
+        <a class="service-card service-card--navy" href="#contact" data-service="Remodel plumbing">
           <span class="service-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M9 38h30M14 38V17l10-7 10 7v21M19 38V27h10v11"/><path d="M7 18h10M31 18h10"/></svg></span>
           <span class="service-card__title">Remodel rough-ins</span>
           <span class="service-card__copy">Thoughtful plumbing updates for kitchen and bathroom projects.</span>
           <span class="service-card__link">Plan a plumbing update</span>
         </a>
-        <a class="service-card service-card--mint" href="#contact">
+        <a class="service-card service-card--mint" href="#contact" data-service="Plumbing checkup">
           <span class="service-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M9 11h30v26H9zM15 18h18M15 24h12M15 30h8"/><path d="m30 31 3 3 6-7"/></svg></span>
           <span class="service-card__title">Plumbing checkups</span>
           <span class="service-card__copy">Small concerns, fixture swaps, and a second opinion on your pipes.</span>
           <span class="service-card__link">Ask us a question</span>
         </a>
       </div>
-      <p class="services-note">Not sure what you need? That’s okay. <a href="tel:+15035550148">Tell us what you’re seeing</a> and we’ll help you sort it out.</p>
+      <p class="services-note" data-reveal>Not sure what you need? That’s okay. <a href="tel:+15035550148">Tell us what you’re seeing</a> and we’ll help you sort it out.</p>
     </section>
 
     <section class="why-section" id="why-us" aria-labelledby="why-title">
       <div class="why-section__inner">
         <div class="why-section__visual">
-          <img src="https://images.unsplash.com/photo-1669829264745-33f0a82cad27?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="A plumber working with exposed pipes during a household repair" loading="lazy">
-          <div class="why-stamp"><span>GOOD<br>NEIGHBOR<br><b>ENERGY</b></span></div>
+          <img src="https://images.unsplash.com/photo-1669829264745-33f0a82cad27?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" data-reveal alt="A plumber working with exposed pipes during a household repair" loading="lazy">
+          <div class="why-stamp" data-reveal><span>GOOD<br>NEIGHBOR<br><b>ENERGY</b></span></div>
         </div>
-        <div class="why-section__copy">
+        <div class="why-section__copy" data-reveal>
           <h2 id="why-title">Plumbing help<br>with a <span>human side.</span></h2>
           <p class="why-section__intro">Inviting a repair crew into your home should feel easy. We keep the conversation clear, talk through your options, and treat your place like a neighbor’s, because that’s what it is.</p>
           <ul class="promise-list">
@@ -126,10 +126,10 @@
     </section>
 
     <section class="steps-section section" aria-labelledby="steps-title">
-      <div class="section-heading section-heading--center">
+      <div class="section-heading section-heading--center" data-reveal>
         <h2 id="steps-title">Three easy steps.<br><span>Less plumbing stress.</span></h2>
       </div>
-      <ol class="steps-grid">
+      <ol class="steps-grid" data-reveal>
         <li class="step-card"><span class="step-card__number">01</span><h3>Tell us what’s up</h3><p>Call or send a quick note about what’s happening at home.</p></li>
         <li class="step-card"><span class="step-card__number">02</span><h3>We take a look</h3><p>We’ll figure out what’s going on and walk you through the options.</p></li>
         <li class="step-card"><span class="step-card__number">03</span><h3>Get back to normal</h3><p>Once you’re happy with the plan, we’ll get to work on the fix.</p></li>
@@ -137,7 +137,7 @@
     </section>
 
     <section class="area-section" id="service-area" aria-labelledby="area-title">
-      <div class="area-section__inner">
+      <div class="area-section__inner" data-reveal>
         <div class="area-section__copy">
           <h2 id="area-title">Portland plumbing.<br><span>Neighborly service.</span></h2>
           <p>Based in the Rose City and here for homes across Portland and nearby communities. Not sure if we come to your block? Just ask.</p>
@@ -152,12 +152,12 @@
     </section>
 
     <section class="faq-section section" id="faq" aria-labelledby="faq-title">
-      <div class="faq-section__intro">
+      <div class="faq-section__intro" data-reveal>
         <h2 id="faq-title">A little less<br><span>“what if?”</span></h2>
         <p>Wondering what to do before we get there? Here are a few helpful starting points.</p>
         <a class="text-link text-link--blue" href="tel:+15035550148">Still unsure? Give us a call</a>
       </div>
-      <div class="faq-list">
+      <div class="faq-list" data-reveal>
         <details><summary>What should I do if a pipe is leaking?</summary><p>If it’s safe and you know where your home’s main water shutoff is, turn it off. Move belongings away from the water, then call us to talk through next steps. If water is near electrical equipment, keep clear and contact the appropriate emergency service.</p></details>
         <details><summary>Do you offer estimates before starting work?</summary><p>We’ll discuss what you’re noticing and explain the next step before work begins. The right estimate depends on what’s going on, so we’ll talk it through with you first.</p></details>
         <details><summary>Can I call if I don’t know what’s wrong?</summary><p>Absolutely. Describe what you’re seeing, like a slow drain, a new sound, or a water stain, and we’ll help you figure out what kind of visit makes sense.</p></details>
@@ -166,7 +166,7 @@
     </section>
 
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
-      <div class="contact-section__inner">
+      <div class="contact-section__inner" data-reveal>
         <div class="contact-copy">
           <h2 id="contact-title">Your plumbing<br>called. <span>It needs us.</span></h2>
           <p>Tell us what’s going on, or just pick up the phone. We’ll make it easy to figure out your next step.</p>
@@ -182,24 +182,23 @@
           <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="How should we address you?" required></div>
           <div class="field"><label for="phone">Best number to reach you</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="503-555-0148" required></div>
           <div class="field"><label for="email">Email address <span>(optional)</span></label><input id="email" name="_replyto" type="email" autocomplete="email" placeholder="you@example.com"></div>
-          <div class="field"><label for="service">What do you need help with?</label><select id="service" name="service" required><option value="" selected disabled>Choose a plumbing problem</option><option>Leak or pipe repair</option><option>Clogged drain</option><option>Water heater</option><option>Toilet or fixture</option><option>Remodel plumbing</option><option>Something else</option></select></div>
+          <div class="field"><label for="service">What do you need help with?</label><select id="service" name="service" required><option value="" selected disabled>Choose a plumbing problem</option><option value="Leak or pipe repair">Leak or pipe repair</option><option value="Clogged drain">Clogged drain</option><option value="Water heater">Water heater</option><option value="Toilet or fixture">Toilet or fixture</option><option value="Remodel plumbing">Remodel plumbing</option><option value="Plumbing checkup">Plumbing checkup</option><option value="Something else">Something else</option></select></div>
           <div class="field"><label for="message">A few details <span>(optional)</span></label><textarea id="message" name="message" rows="3" placeholder="What are you noticing?"></textarea></div>
           <button class="button button--orange button--submit" type="submit">Send inquiry</button>
-          <p class="form-note"><strong>Template inbox: your-email@example.com.</strong> Replace this in the form action before launch.</p>
         </form>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-main">
+    <div class="footer-main" data-reveal>
       <div class="footer-brand-block">
         <a class="brand brand--footer" href="index.html" aria-label="Rose City Plumbing Co. home"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 3C15.2 10.4 8.5 17.5 8.5 24.6a11.5 11.5 0 1 0 23 0C31.5 17.5 24.8 10.4 20 3Z" fill="currentColor"/><path d="M15.2 24.5h9.6M20 19.7v9.6" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></span><span class="brand__words"><strong>ROSE CITY</strong><span>PLUMBING CO.</span></span></a>
       </div>
       <div class="footer-call"><span>Have a plumbing question?</span><a href="tel:+15035550148">503-555-0148</a></div>
       <nav class="footer-nav" aria-label="Footer navigation"><a href="#services">Services</a><a href="#service-area">Service area</a><a href="#faq">FAQs</a><a href="privacy-policy.html">Privacy</a><a href="accessibility-statement.html">Accessibility</a></nav>
     </div>
-    <div class="footer-bottom"><p>© 2026 Rose City Plumbing Co. | Portland, Oregon</p><p class="demo-note">Fictional demo business | <span>Website by <a href="https://liamhuang.dev" target="_blank" rel="noopener noreferrer">Liam Huang</a></span></p></div>
+    <div class="footer-bottom" data-reveal><p>© 2026 Rose City Plumbing Co. | Portland, Oregon</p><p class="demo-note"><span>Website by <a href="https://liamhuang.dev" target="_blank" rel="noopener noreferrer">Liam Huang</a></span></p></div>
   </footer>
 
   <script src="script.js"></script>
