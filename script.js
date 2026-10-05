@@ -1,6 +1,4 @@
 (() => {
-  document.documentElement.classList.add('js');
-
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const nav = document.querySelector('[data-nav]');
 
@@ -20,7 +18,7 @@
         entry.target.classList.add('is-visible');
         observer.unobserve(entry.target);
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
     revealItems.forEach((item) => revealObserver.observe(item));
   } else {
     revealItems.forEach((item) => item.classList.add('is-visible'));
